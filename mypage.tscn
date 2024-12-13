@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://j71i0vh3s13m"]
+
+[ext_resource type="Script" path="res://mypage.gd" id="1_puixo"]
+[ext_resource type="Script" path="res://mypost.gd" id="2_mptjp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wnrjt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nw223"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16dsg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_us1qh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfl8q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ru8u"]
+
+[sub_resource type="Theme" id="Theme_bm3xb"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_nw223")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_16dsg")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_us1qh")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_qfl8q")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_1ru8u")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_puixo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_wnrjt")
+layout_mode = 0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 42.0
+scale = Vector2(48.2624, 26.8253)
+color = Color(0.898526, 0.922918, 0.956494, 1)
+
+[node name="Logout" type="Button" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 70.0
+offset_right = 747.0
+offset_bottom = 215.0
+scale = Vector2(0.439059, 0.439059)
+theme_override_font_sizes/font_size = 100
+text = "Timeline"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 24.0
+offset_right = 1202.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "User Page of ____"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 416.0
+offset_right = 1296.0
+offset_bottom = 1072.0
+theme = SubResource("Theme_bm3xb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_mptjp")
+
+[node name="Title2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 200.0
+offset_right = 1346.0
+offset_bottom = 337.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "My Posts"
+
+[node name="CreatePost" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1496.0
+offset_top = 936.0
+offset_right = 1822.0
+offset_bottom = 1027.0
+theme_override_font_sizes/font_size = 60
+text = "CreatePost"
+
+[node name="InsertText" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 1312.0
+offset_top = 592.0
+offset_right = 1944.0
+offset_bottom = 928.0
+theme_override_font_sizes/font_size = 60
+placeholder_text = "Enter post text"
+wrap_mode = 1
+
+[node name="Follow" type="Button" parent="."]
+offset_left = 1432.0
+offset_top = 232.0
+offset_right = 2547.0
+offset_bottom = 377.0
+scale = Vector2(0.439059, 0.439059)
+theme_override_font_sizes/font_size = 100
+text = "Add/Remove Followers"
+
+[connection signal="pressed" from="Logout" to="." method="_on_logout_pressed"]
+[connection signal="pressed" from="CreatePost" to="." method="_on_create_post_pressed"]
+[connection signal="pressed" from="Follow" to="." method="_on_follow_pressed"]

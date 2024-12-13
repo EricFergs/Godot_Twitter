@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://dd61qamnme5ko"]
+
+[ext_resource type="Script" path="res://commentspage.gd" id="1_vtxq0"]
+[ext_resource type="Script" path="res://loadcomments.gd" id="2_ojov6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wnrjt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah22i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gthr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01k1m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghlmf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jwj24"]
+
+[sub_resource type="Theme" id="Theme_bm3xb"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_ah22i")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_7gthr")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_01k1m")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_ghlmf")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_jwj24")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vtxq0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_wnrjt")
+layout_mode = 0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 42.0
+scale = Vector2(48.2624, 26.8253)
+color = Color(0.898526, 0.922918, 0.956494, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 136.0
+offset_right = 1304.0
+offset_bottom = 1075.0
+theme = SubResource("Theme_bm3xb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_ojov6")
+
+[node name="Logout" type="Button" parent="."]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 359.0
+offset_bottom = 177.0
+scale = Vector2(0.643335, 0.643335)
+theme_override_font_sizes/font_size = 100
+text = "Back"
+
+[node name="CreatePost" type="Button" parent="."]
+offset_left = 1416.0
+offset_top = 944.0
+offset_right = 1852.0
+offset_bottom = 1035.0
+theme_override_font_sizes/font_size = 60
+text = "Post Comment"
+
+[node name="InsertText" type="TextEdit" parent="."]
+offset_left = 1312.0
+offset_top = 592.0
+offset_right = 1944.0
+offset_bottom = 928.0
+theme_override_font_sizes/font_size = 60
+placeholder_text = "Enter comment"
+wrap_mode = 1
+
+[connection signal="pressed" from="Logout" to="." method="_on_logout_pressed"]
+[connection signal="pressed" from="CreatePost" to="." method="_on_create_post_pressed"]

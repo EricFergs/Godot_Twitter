@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://t3jko6ix7teo"]
+
+[ext_resource type="Script" path="res://sql.gd" id="1_srobh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wnrjt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_srobh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_wnrjt")
+layout_mode = 0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 42.0
+scale = Vector2(48.2624, 26.8253)
+color = Color(0.898526, 0.922918, 0.956494, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 70.0
+offset_right = 747.0
+offset_bottom = 215.0
+scale = Vector2(0.439059, 0.439059)
+theme_override_font_sizes/font_size = 100
+text = "Create Tables"
+
+[node name="User" type="Button" parent="."]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 396.0
+offset_right = 1095.0
+offset_bottom = 541.0
+scale = Vector2(0.61, 0.61)
+theme_override_font_sizes/font_size = 100
+text = "Enter User"
+
+[node name="Enter" type="Button" parent="."]
+layout_mode = 0
+offset_left = 667.0
+offset_top = 710.0
+offset_right = 1331.0
+offset_bottom = 855.0
+scale = Vector2(0.61, 0.61)
+theme_override_font_sizes/font_size = 100
+text = "Submit"
+
+[node name="Password" type="Button" parent="."]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 526.0
+offset_right = 1101.0
+offset_bottom = 671.0
+scale = Vector2(0.61, 0.61)
+theme_override_font_sizes/font_size = 100
+text = "Password
+"
+
+[node name="UserInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 930.0
+offset_top = 364.0
+offset_right = 1306.0
+offset_bottom = 509.0
+scale = Vector2(1.08684, 0.853302)
+theme_override_font_sizes/font_size = 60
+
+[node name="PassInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 520.0
+offset_right = 1304.0
+offset_bottom = 665.0
+scale = Vector2(1.08684, 0.853302)
+theme_override_font_sizes/font_size = 60
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 168.0
+offset_right = 1016.0
+offset_bottom = 305.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Log in"
+
+[node name="Title2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 832.0
+offset_right = 1016.0
+offset_bottom = 969.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Enter" to="." method="_on_enter_pressed"]

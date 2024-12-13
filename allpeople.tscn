@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://irljpa1dvjd"]
+
+[sub_resource type="Gradient" id="Gradient_xn4ah"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.698598, 0.536129, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iltrf"]
+gradient = SubResource("Gradient_xn4ah")
+height = 128
+
+[node name="TextureRect" type="TextureRect"]
+texture = SubResource("GradientTexture2D_iltrf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 32
+text = "User:"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 273.0
+offset_bottom = 125.0
+theme_override_font_sizes/font_size = 32
+text = "Add Follower"
